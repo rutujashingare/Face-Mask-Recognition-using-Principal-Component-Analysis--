@@ -27,7 +27,8 @@ PCA reduces dimensions of the data and accurately decompose the face structure i
 PCA explains the variance-covariance structure among a set of variables through a few linear combination of these variables.
 
 ## Steps for Face Mask Recognition
-STEP 1 
+STEP 1
+
 A : PREPARING THE TRAINING IMAGES
 Obtain training face images of with mask and without mask I1, I2, I3, I4, . . . . . ., IK
 
