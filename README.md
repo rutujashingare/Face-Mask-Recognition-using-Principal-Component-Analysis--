@@ -72,9 +72,9 @@ The weights obtained above form a vector as
 The distance between two points defined as the square root of the sum of the squares of the differences between the corresponding coordinates of the points
 The distance between two groups can be computed based on the length of the straight line drawn from one groups to another. This is commonly known as the Euclidean distance. 
 
-𝝎_𝒕𝒆𝒔𝒕= 𝒗_^𝑻 (𝜞_𝒕𝒆𝒔𝒕−"x̄")
-         Ωtest =[𝝎_𝟏, 𝝎_(𝟐 ), ………,𝝎_𝒌 ]
-𝜺_𝒌=√(〖‖𝛀_𝐭𝐞𝐬𝐭− 𝜴_𝒊 ‖〗^𝟐  )
+                              𝝎_𝒕𝒆𝒔𝒕 = 𝒗_^𝑻 (𝜞_𝒕𝒆𝒔𝒕−"x̄")
+                               Ωtest = [𝝎_𝟏, 𝝎_(𝟐 ), ………,𝝎_𝒌 ]
+                                 𝜺_𝒌 = √(〖‖𝛀_𝐭𝐞𝐬𝐭− 𝜴_𝒊 ‖〗^𝟐  )
 
 ## Eigenface Approach
 Eigenfaces which are also referred to as Ghostly images are the Eigenvectors of Covariance Matrix of the dataset.
