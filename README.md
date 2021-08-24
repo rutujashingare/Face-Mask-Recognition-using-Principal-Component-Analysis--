@@ -37,14 +37,14 @@ Each image is transformed into a face vector (𝚪𝐢) of dimension N2x1 and pl
 Here, K depends on the number of train images and S is a variable which loads all images. 
 
 STEP 2 : COMPUTE THE MEAN FACE VECTOR     
-x̄=  1/𝐾  ∑2▒Г 𝐾               
+                             x̄=  1/𝐾  ∑2▒Г 𝐾               
 Here x̄ is a mean face vector 
 
 STEP 3 : SUBTRACT THE MEAN FACE VECTOR
 We subtract the mean face from each image of the dataset which is called normalization.
 
-𝝓_𝒏= 𝜞𝒏−"x̄"
-                           D = {φ1 , φ2, φ3,….φK }
+                           𝝓_𝒏= 𝜞𝒏−"x̄"
+                             D = {φ1 , φ2, φ3,….φK }
  Here D is a new matrix generated.
  
 STEP 4 : CALCULATE THE COVARIANCE MATRIX
@@ -64,9 +64,9 @@ We have 130 principal components and each principal component is a linear combin
 
 STEP 7 : CALCULATE WEIGHTS FOR THE TRAINING IMAGES
 The feature weight for the training image can be calculated as 
-ω_𝑘= 𝑣_^𝑇 (Γn−"x̄" )
+                                 ω_𝑘= 𝑣_^𝑇 (Γn−"x̄" )
 The weights obtained above form a vector as 
-Ωi = [ω_1, ω_2, ……, ω_𝐾]
+                                 Ωi = [ω_1, ω_2, ……, ω_𝐾]
 
 ## Euclidean Distance
 The distance between two points defined as the square root of the sum of the squares of the differences between the corresponding coordinates of the points
