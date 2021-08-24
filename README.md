@@ -42,13 +42,16 @@ Here x̄ is a mean face vector
 
 STEP 3 : SUBTRACT THE MEAN FACE VECTOR
 We subtract the mean face from each image of the dataset which is called normalization.
+
 𝝓_𝒏= 𝜞𝒏−"x̄"
                            D = {φ1 , φ2, φ3,….φK }
  Here D is a new matrix generated.
  
 STEP 4 : CALCULATE THE COVARIANCE MATRIX
+
            𝐂      = DDT
                     = {D (N2 X K) DT (Kx N2) } (N2xN2)
+                    
 Here 𝑫 = [𝝓_𝟏, 𝝓_𝟐, ……..,φ𝐾] (N2 X K)
 
 STEP 5 : CALCULATE EIGENVECTOR & EIGENVALUES REDUCING HUGE FACE VECTOR 
