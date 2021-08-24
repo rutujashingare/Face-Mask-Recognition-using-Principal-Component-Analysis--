@@ -5,7 +5,7 @@ The COVID–19 virus can be spread through contact and contaminated surfaces. Th
 
 Face masks have been employed as a public and  personal health control measure against the spread of the COVID-19 pandemic. In both community and healthcare settings, their use is intended as a source control to limit transmission of the virus and personal protection to prevent infection.
 Types of Face Mask Recognition :
-1. Based on Local Regions    2. Based on Global Appearance
+1. Based on Local Regions                                    2. Based on Global Appearance
 
 ## Dataset
 https://drive.google.com/drive/folders/1M9n5s423Gr-xjNZWQgl2nWXuwrni4R23
