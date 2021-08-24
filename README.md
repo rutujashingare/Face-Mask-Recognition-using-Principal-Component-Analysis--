@@ -17,7 +17,8 @@ Types of Face Mask Recognition :
 Haar Cascade Classifier is based on the Viola-Jones Recognition algorithm which is trained by giving some input images and training a classifier that identifies a face with mask.  Haar Cascade Classifier is a machine learning object Recognition algorithm used to identify objects in an image trained by superimposing the positive image over a set of negative images.
 
 ## Processed data
-![image](https://user-images.githubusercontent.com/70087327/130550505-38d980f4-0039-4c6a-b8f1-0b46d7ca8077.png)  ![image](https://user-images.githubusercontent.com/70087327/130550527-b319fd60-66dc-41f5-9eaf-8231d1a9db61.png)
+![image](https://user-images.githubusercontent.com/70087327/130550669-31eafe5b-cd30-45bb-95e5-64a3136b9083.png)
+![image](https://user-images.githubusercontent.com/70087327/130550699-49859d61-1f8a-4d38-bba0-647f914aef5a.png)
 
 # Principal Component Analysis
 PCA is a dimensions reduction technique where in the data is compressed in a way that the main features of the data are preserved.
