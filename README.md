@@ -8,6 +8,7 @@ Types of Face Mask Recognition :
 1. Based on Local Regions    2. Based on Global Appearance
 
 ## Dataset
+https://drive.google.com/drive/folders/1M9n5s423Gr-xjNZWQgl2nWXuwrni4R23
 
 ## Pre-processed data
 ![image](https://user-images.githubusercontent.com/70087327/130550778-1896608c-b28a-4410-8ea4-19103bf606da.png)
