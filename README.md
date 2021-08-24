@@ -31,7 +31,6 @@ STEP 1
 
 A : PREPARING THE TRAINING IMAGES
 Obtain training face images of with mask and without mask I1, I2, I3, I4, . . . . . ., IK
-
 B: PREPARING THE DATASET
 Each image is transformed into a face vector (𝚪𝐢) of dimension N2x1 and placed into a set 
  𝑆= {𝛤1, 𝛤2, ……, 𝛤𝐾}  
@@ -69,6 +68,7 @@ The weights obtained above form a vector as
 ## Euclidean Distance
 The distance between two points defined as the square root of the sum of the squares of the differences between the corresponding coordinates of the points
 The distance between two groups can be computed based on the length of the straight line drawn from one groups to another. This is commonly known as the Euclidean distance. 
+
 𝝎_𝒕𝒆𝒔𝒕= 𝒗_^𝑻 (𝜞_𝒕𝒆𝒔𝒕−"x̄")
          Ωtest =[𝝎_𝟏, 𝝎_(𝟐 ), ………,𝝎_𝒌 ]
 𝜺_𝒌=√(〖‖𝛀_𝐭𝐞𝐬𝐭− 𝜴_𝒊 ‖〗^𝟐  )
