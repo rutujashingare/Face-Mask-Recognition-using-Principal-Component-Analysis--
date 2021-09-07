@@ -20,14 +20,14 @@ Haar Cascade Classifier is based on the Viola-Jones Recognition algorithm which 
 ![image](https://user-images.githubusercontent.com/70087327/130550669-31eafe5b-cd30-45bb-95e5-64a3136b9083.png)
 ![image](https://user-images.githubusercontent.com/70087327/130550699-49859d61-1f8a-4d38-bba0-647f914aef5a.png)
 
-# Principal Component Analysis
+## Principal Component Analysis
 PCA is a dimensions reduction technique where in the data is compressed in a way that the main features of the data are preserved.
 PCA reduces dimensions of the data and accurately decompose the face structure into the orthogonal principal components known as ‘Eigenfaces’.
 PCA explains the variance-covariance structure among a set of variables through a few linear combination of these variables.
 
 ## Steps for Face Mask Recognition
-STEP 1
 
+### STEP 1
 A : PREPARING THE TRAINING IMAGES
 Obtain training face images of with mask and without mask I1, I2, I3, I4, . . . . . ., IK
 B: PREPARING THE DATASET
@@ -35,33 +35,39 @@ Each image is transformed into a face vector (𝚪𝐢) of dimension N2x1 and pl
  𝑆= {𝛤1, 𝛤2, ……, 𝛤𝐾}  
 Here, K depends on the number of train images and S is a variable which loads all images. 
 
-STEP 2 : COMPUTE THE MEAN FACE VECTOR     
+### STEP 2 
+COMPUTE THE MEAN FACE VECTOR     
                              x̄=  1/𝐾  ∑2▒Г 𝐾               
 Here x̄ is a mean face vector 
 
-STEP 3 : SUBTRACT THE MEAN FACE VECTOR
+### STEP 3 
+SUBTRACT THE MEAN FACE VECTOR
 We subtract the mean face from each image of the dataset which is called normalization.
 
                            𝝓_𝒏 = 𝜞𝒏−"x̄"
                              D = {φ1 , φ2, φ3,….φK }
  Here D is a new matrix generated.
  
-STEP 4 : CALCULATE THE COVARIANCE MATRIX
+### STEP 4 
+CALCULATE THE COVARIANCE MATRIX
 
            𝐂      = DDT
                   = {D (N2 X K) DT (Kx N2) } (N2xN2)
                     
 Here 𝑫 = [𝝓_𝟏, 𝝓_𝟐, ……..,φ𝐾] (N2 X K)
 
-STEP 5 : CALCULATE EIGENVECTOR & EIGENVALUES REDUCING HUGE FACE VECTOR 
+### STEP 5 
+CALCULATE EIGENVECTOR & EIGENVALUES REDUCING HUGE FACE VECTOR 
 Since ‘ C ’ is a Covariance matrix, we have to find the eigenvectors of it.
 Calculating eigenvectors of ‘ C ‘ is tedious task as it is a huge matrix and its dimension is N2xN2  
 Now, we need to calculate weight which is compared with test image weight.
 
-STEP 6: KEEP EIGENVECTORS CORRESPONDING TO THE K LARGEST EIGENVALUES
+### STEP 6:
+KEEP EIGENVECTORS CORRESPONDING TO THE K LARGEST EIGENVALUES
 We have 130 principal components and each principal component is a linear combination of all variables. 
 
-STEP 7 : CALCULATE WEIGHTS FOR THE TRAINING IMAGES
+### STEP 7 
+CALCULATE WEIGHTS FOR THE TRAINING IMAGES
 The feature weight for the training image can be calculated as 
 
                                  ω_𝑘= 𝑣_^𝑇 (Γn−"x̄" )
