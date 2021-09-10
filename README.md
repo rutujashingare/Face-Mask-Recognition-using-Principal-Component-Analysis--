@@ -9,12 +9,19 @@ PCA reduces dimensions of the data and accurately decompose the face structure i
 PCA explains the variance-covariance structure among a set of variables through a few linear combination of these variables.
 
 ## Steps of Principal Component Analysis algorithm 
+
 Step 1: Input data 
+
 Step 2: Calculate mean value of data 
+
 Step 3: Subtract the mean value from each input data 
-Step 4: Calculate Covariance matrix 
+
+Step 4: Calculate Covariance matrix
+
 Step 5: Calculate Eigen vectors and Eigen values 
+
 Step 6: Finding the greatest eigenvalue(s) 
+
 Step 7: Calculate Weight
 
 ## Dataset
