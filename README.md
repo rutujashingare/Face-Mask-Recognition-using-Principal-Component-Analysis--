@@ -7,95 +7,34 @@ The COVID–19 virus can be spread through contact and contaminated surfaces. Th
 
 
 ## Dataset
+We collected total 300 face images each of 150 for people wearing masks and not wearing masks.
 https://drive.google.com/drive/folders/1M9n5s423Gr-xjNZWQgl2nWXuwrni4R23
 
 ## Pre-processed data
 ![image](https://user-images.githubusercontent.com/70087327/130550778-1896608c-b28a-4410-8ea4-19103bf606da.png)
 ![image](https://user-images.githubusercontent.com/70087327/130550802-b713c7c5-3c33-4576-993b-648a3e8f3422.png)
 
-## Haar Cascade Classifier 
-Haar Cascade Classifier is based on the Viola-Jones Recognition algorithm which is trained by giving some input images and training a classifier that identifies a face with mask.  Haar Cascade Classifier is a machine learning object Recognition algorithm used to identify objects in an image trained by superimposing the positive image over a set of negative images.
 
-## Processed data
-![image](https://user-images.githubusercontent.com/70087327/130550669-31eafe5b-cd30-45bb-95e5-64a3136b9083.png)
-![image](https://user-images.githubusercontent.com/70087327/130550699-49859d61-1f8a-4d38-bba0-647f914aef5a.png)
+## Viola Jones Algorithm
+We used Viola-Jones algorithm to detect faces from images. Viola-Jones algorithm is an object-recognition framework that allows the detection of image features in real-time. It first detects the face on the grayscale image and then finds the location on the colored image. It outlines a box and searches for a face within the that box. 
 
-## Principal Component Analysis
-PCA is a dimensions reduction technique where in the data is compressed in a way that the main features of the data are preserved.
-PCA reduces dimensions of the data and accurately decompose the face structure into the orthogonal principal components known as ‘Eigenfaces’.
-PCA explains the variance-covariance structure among a set of variables through a few linear combination of these variables.
+## Create a face vector
+We created a face vector of 64x64 = 4096 components by converting two dimensional images into  a one face vector by aligning the pixels. From the numerical point of view, this large number of components i.e. 4096 components may be exaggerated for representing such images. Hence, in order to reduce the size of the data, we applied PCA method to select only the main components of our images.
 
-## Steps for Face Mask Recognition
+## Steps of Principal Component Analysis algorithm 
+Step 1: Input data 
+Step 2: Calculate mean value of data 
+Step 3: Subtract the mean value from each input data 
+Step 4: Calculate Covariance matrix 
+Step 5: Calculate Eigen vectors and Eigen values 
+Step 6: Finding the greatest eigenvalue(s) 
+Step 7: Calculate Weight
 
-### STEP 1
-A : PREPARING THE TRAINING IMAGES
-Obtain training face images of with mask and without mask I1, I2, I3, I4, . . . . . ., IK
-B: PREPARING THE DATASET
-Each image is transformed into a face vector (𝚪𝐢) of dimension N2x1 and placed into a set 
- 𝑆= {𝛤1, 𝛤2, ……, 𝛤𝐾}  
-Here, K depends on the number of train images and S is a variable which loads all images. 
+## Normalization of a face vector
+After creating a face vector, next step is to normalize all the faces of training set. We performed normalization of all the face of training set by removing common features between these faces, so that every face was left with only its unique features. For this, we removed the average face (mean face/mean of pixels) from each of face image of the dataset. Now, we are ready with our normalized face vector.
 
-### STEP 2 
-COMPUTE THE MEAN FACE VECTOR     
-                             x̄=  1/𝐾  ∑2▒Г 𝐾               
-Here x̄ is a mean face vector 
+## Covariance Matrix, Eigen vectors and Eigen values 
+After normalizing, we calculated the covariance matrix of the normalized lower dimensional vector. The relative variance between pixels in images is represented by the covariance matrix. Later for efficient and accurate calculation with reduction of huge face space vector, we calculated eigen vectors from the covariance matrix. Eigen vectors with the highest eigen values are considered as the principal components.
 
-### STEP 3 
-SUBTRACT THE MEAN FACE VECTOR
-We subtract the mean face from each image of the dataset which is called normalization.
-
-                           𝝓_𝒏 = 𝜞𝒏−"x̄"
-                             D = {φ1 , φ2, φ3,….φK }
- Here D is a new matrix generated.
- 
-### STEP 4 
-CALCULATE THE COVARIANCE MATRIX
-
-           𝐂      = DDT
-                  = {D (N2 X K) DT (Kx N2) } (N2xN2)
-                    
-Here 𝑫 = [𝝓_𝟏, 𝝓_𝟐, ……..,φ𝐾] (N2 X K)
-
-### STEP 5 
-CALCULATE EIGENVECTOR & EIGENVALUES REDUCING HUGE FACE VECTOR 
-Since ‘ C ’ is a Covariance matrix, we have to find the eigenvectors of it.
-Calculating eigenvectors of ‘ C ‘ is tedious task as it is a huge matrix and its dimension is N2xN2  
-Now, we need to calculate weight which is compared with test image weight.
-
-### STEP 6:
-KEEP EIGENVECTORS CORRESPONDING TO THE K LARGEST EIGENVALUES
-We have 130 principal components and each principal component is a linear combination of all variables. 
-
-### STEP 7 
-CALCULATE WEIGHTS FOR THE TRAINING IMAGES
-The feature weight for the training image can be calculated as 
-
-                                 ω_𝑘= 𝑣_^𝑇 (Γn−"x̄" )
-                                 
-The weights obtained above form a vector as 
-
-                                 Ωi = [ω_1, ω_2, ……, ω_𝐾]
-
-## Euclidean Distance
-The distance between two points defined as the square root of the sum of the squares of the differences between the corresponding coordinates of the points
-The distance between two groups can be computed based on the length of the straight line drawn from one groups to another. This is commonly known as the Euclidean distance. 
-
-                              𝝎_𝒕𝒆𝒔𝒕 = 𝒗_^𝑻 (𝜞_𝒕𝒆𝒔𝒕−"x̄")
-                               Ωtest = [𝝎_𝟏, 𝝎_(𝟐 ), ………,𝝎_𝒌 ]
-                                 𝜺_𝒌 = √(〖‖𝛀_𝐭𝐞𝐬𝐭− 𝜴_𝒊 ‖〗^𝟐  )
-
-## Eigenface Approach
-Eigenfaces which are also referred to as Ghostly images are the Eigenvectors of Covariance Matrix of the dataset.
-This approach is mainly used to represent the input data efficiently where each individual can be represented in terms of linear combination of eigenfaces.
-This approach transforms faces into a small set of essential characteristics, eigenfaces which are the main components of the initial set of learning images i.e. training set.
-
-## Training Image:
-![image](https://user-images.githubusercontent.com/70087327/130551265-120aa6f3-776d-43cf-8f1f-2fc09d9c0ced.png)
-
-## Eigenface:
-![image](https://user-images.githubusercontent.com/70087327/130551296-c5b3f15f-f205-46ad-8cdd-fbd0628a1fe9.png)
-
-## Conclusion
-The Euclidean approach classifies 75% of the tests correctly.
-The feature extracted from masked face is less than non-masked face.
-PCA gives a good recognition rate for masked images.
+## Weight calculation
+Now, for the recognition, we calculated weights for each of input images and compared with the test images weight. In this way, system recognized the masked faces with the matching closest face from the training set.
