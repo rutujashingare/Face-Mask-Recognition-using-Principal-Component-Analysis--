@@ -1,25 +1,12 @@
 # Face Mask Recognition using Principal Component Analysis
 
-## Introduction
-Face mask Recognition is a Biometric Technology of identifying an individual wearing a mask by comparing live capture or digital image data with the stored record for that person.
+## Objective
+To create a face mask recognition algorithm that can be deployed by banks, airports and educational institutes using Principal Component Analysis.
 
-The COVID–19 virus can be spread through contact and contaminated surfaces. There are so many essential equipment’s needed to fight against the Corona virus. One of such most essential is Face Mask. Firstly, a face mask was not mandatory for everyone but as the day progresses scientists and Doctors have recommended everyone to wear a face mask. So to detect whether a person is wearing Face Mask or not is an essential process to implement in the society currently which can be used for various applications like at the airport, hospitals, offices, schools, etc. This system can be of great importance at airports to detect travelers whether they are wearing a mask or not and at schools to ensure students are wearing a face mask for their safety. Face masks have been employed as a public and  personal health control measure against the spread of the COVID-19 pandemic. In both community and healthcare settings, their use is intended as a source control to limit transmission of the virus and personal protection to prevent infection.
-
-
-## Dataset
-We collected total 300 face images each of 150 for people wearing masks and not wearing masks.
-https://drive.google.com/drive/folders/1M9n5s423Gr-xjNZWQgl2nWXuwrni4R23
-
-## Pre-processed data
-![image](https://user-images.githubusercontent.com/70087327/130550778-1896608c-b28a-4410-8ea4-19103bf606da.png)
-![image](https://user-images.githubusercontent.com/70087327/130550802-b713c7c5-3c33-4576-993b-648a3e8f3422.png)
-
-
-## Viola Jones Algorithm
-We used Viola-Jones algorithm to detect faces from images. Viola-Jones algorithm is an object-recognition framework that allows the detection of image features in real-time. It first detects the face on the grayscale image and then finds the location on the colored image. It outlines a box and searches for a face within the that box. 
-
-## Create a face vector
-We created a face vector of 64x64 = 4096 components by converting two dimensional images into  a one face vector by aligning the pixels. From the numerical point of view, this large number of components i.e. 4096 components may be exaggerated for representing such images. Hence, in order to reduce the size of the data, we applied PCA method to select only the main components of our images.
+## Principal Component Analysis
+PCA is a dimensions reduction technique where in the data is compressed in a way that the main features of the data are preserved.
+PCA reduces dimensions of the data and accurately decompose the face structure into the orthogonal principal components known as ‘Eigenfaces’.
+PCA explains the variance-covariance structure among a set of variables through a few linear combination of these variables.
 
 ## Steps of Principal Component Analysis algorithm 
 Step 1: Input data 
@@ -30,11 +17,32 @@ Step 5: Calculate Eigen vectors and Eigen values
 Step 6: Finding the greatest eigenvalue(s) 
 Step 7: Calculate Weight
 
+## Dataset
+We collected total 300 face images each of 150 for people wearing masks and not wearing masks.
+https://drive.google.com/drive/folders/1M9n5s423Gr-xjNZWQgl2nWXuwrni4R23
+
+## Pre-processed data
+
+![image](https://user-images.githubusercontent.com/70087327/132878408-749ce553-84da-4b00-b5a2-c3ebdc2877a7.png)
+
+
+## Viola Jones Algorithm
+We used Viola-Jones algorithm to detect faces from images. Viola-Jones algorithm is an object-recognition framework that allows the detection of image features in real-time. It first detects the face on the grayscale image and then finds the location on the colored image. It outlines a box and searches for a face within the that box. 
+
+## Create a face vector
+We created a face vector of 64x64 = 4096 components by converting two dimensional images into  a one face vector by aligning the pixels. From the numerical point of view, this large number of components i.e. 4096 components may be exaggerated for representing such images. Hence, in order to reduce the size of the data, we applied PCA method to select only the main components of our images.
+
 ## Normalization of a face vector
 After creating a face vector, next step is to normalize all the faces of training set. We performed normalization of all the face of training set by removing common features between these faces, so that every face was left with only its unique features. For this, we removed the average face (mean face/mean of pixels) from each of face image of the dataset. Now, we are ready with our normalized face vector.
 
-## Covariance Matrix, Eigen vectors and Eigen values 
-After normalizing, we calculated the covariance matrix of the normalized lower dimensional vector. The relative variance between pixels in images is represented by the covariance matrix. Later for efficient and accurate calculation with reduction of huge face space vector, we calculated eigen vectors from the covariance matrix. Eigen vectors with the highest eigen values are considered as the principal components.
+![image](https://user-images.githubusercontent.com/70087327/132878627-cc1af24d-1ce4-43a6-8d9b-c8cd3b39c69a.png)
 
-## Weight calculation
-Now, for the recognition, we calculated weights for each of input images and compared with the test images weight. In this way, system recognized the masked faces with the matching closest face from the training set.
+
+## Covariance Matrix, Eigen vectors and Eigen values 
+After normalizing, we calculated the covariance matrix of the normalized lower dimensional vector. The relative variance between pixels in images is represented by the covariance matrix. Later for efficient and accurate calculation with reduction of huge face space vector, we calculated eigen vectors from the covariance matrix. Eigen vectors with the highest eigen values are considered as the principal components. Below are the examples of eigenfaces which is nothing but the set of eigenvectors.
+
+![image](https://user-images.githubusercontent.com/70087327/132878715-5efbab6a-ec69-4320-9edc-da08fcff3310.png)
+
+
+## Recognition
+After the successful computation of PCA representation of images and performing identification of potential facial components, we calculated weights for each of input images and compared with the test images weight. The eigen face were selected and used for the recognition. The recognition was carried out by comparing the selected features from the target image against selected features from the corresponding images. 
