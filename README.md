@@ -52,4 +52,21 @@ After normalizing, we calculated the covariance matrix of the normalized lower d
 
 
 ## Recognition
-After the successful computation of PCA representation of images and performing identification of potential facial components, we calculated weights for each of input images and compared with the test images weight. The eigen face were selected and used for the recognition. The recognition was carried out by comparing the selected features from the target image against selected features from the corresponding images. 
+After the successful computation of PCA representation of images and performing identification of potential facial components, we calculated weights for each of input images and compared with the test images weight. The eigen face were selected and used for the recognition. The recognition was carried out by comparing the selected features from the target image against selected features from the corresponding images for which we used Euclidean distance method
+.
+
+## Euclidean distance 
+Euclidean Distance method is used. In this method, the Euclidean distance between the feature points of the training images and that of the query image is compared. Based on minimum Euclidean distance, output image expression is decided. We then generated the eigen faces which is nothing but a set of eigenvectors. we can build 2 ( normal ) distributions.
+
+1.	distances between same person's faces
+	
+2.	distances between different faces
+
+Intersection of these distributions will be the threshold.
+We compare training and testing weights. If this weight is greater than threshold value then system recognizes the face. Also, for recognising unknown faces and predicting it as unknown, we require a threshold value. While recognising the face we calculate the euclidean distance between the projected test face (Projecting the mean aligned face on Eigen faces) and all the vectors in the signature matrix and select the vector of the signature matrix with the least euclidean distance between it and the projected test face. However, if even this distance happens to be higher than the threshold value(tolerance), then we classify it as an unknown face.
+
+
+## Conclusion
+This system can correctly recognize people wearing face mask with the accuracy of 75%. This algorithm that can be deployed by banks, airports and educational
+institutes.
+
